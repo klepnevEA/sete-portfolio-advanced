@@ -1,0 +1,106 @@
+.section-top {
+	position: relative;
+	flex-direction: column;
+	align-items: stretch;
+	width: 100%;
+	height: 100vh;
+	max-height: 690px;
+
+	background-image: url("../../assets/img/images_1800/bg/forest.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.section-top_about {
+	width: 100%;
+	height: 100%;	
+}
+
+.section-top_avatar {
+	flex-direction: column;	
+	align-items: center;
+	justify-content: center; 
+	position: relative;
+	top: 0;	
+	width: 50%;
+	margin:0 auto;
+	min-width:100px;
+	height: 90%;
+}
+
+.section-top_photo {
+	width: 100%;
+	padding-top:42px;
+}
+
+.section-top_img {
+	margin: 0 auto;
+	width: 142px;
+	height: 142px;
+	border-radius: 50%;
+	overflow: hidden;
+	background-color: #fff;
+}
+
+.section-top_text {
+	padding-top:17px;
+	flex-direction: column;	
+	color: #fff;
+}
+
+.section-top_name {
+	display: inline-block;
+	font-family: 'Roboto-Medium';
+	text-align: center;
+	font-size: 2.2rem;
+	line-height:1.4em;		
+}
+
+.section-top_info {
+	display: inline-block;	
+	font-family: 'Roboto-Regular';
+	text-align: center;	
+	font-size:1rem;	
+}
+
+.section-top_bg {
+	position: absolute;
+	width: 100%;
+	height: 100%;		
+}
+
+.section-top_bg_svg {
+	margin: 0 auto;
+	fill: #fff;
+	fill-opacity:.2;
+	width: 66%;
+}
+
+.section-top_text-bg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+
+
+.corners {
+	position: absolute;
+	bottom: 0;	
+	width: 100%;
+	height: 20%;	
+}
+
+.corners__svg {
+	width: 100%;
+	height: 100%;
+  fill: #4CAF50;	
+
+
+	&_left{
+  	fill: #ebefe1;
+	}
+	&_right{
+  	fill: #f4f5f0;
+	}
+}

@@ -1,0 +1,19 @@
+block variables
+- var sociale = ['vk', 'github', 'in']
+header.header 
+	.header__bloks.header__social
+		.social__icons
+			ul.social__list
+				- for (var i = 0; i < sociale.length; i++)
+						li.social__item
+							a.social__link(href="#")
+								svg.social__icon(class="social__icon_" + `${sociale[i]}`)
+									use(xlink:href="assets/img/sprite.svg#" + `${sociale[i]}`)
+					
+
+	.header__bloks.header__menu
+		.header__button
+			.header__button-icon
+				a.menu__link(href="#")
+					i.fa.fa-bars(aria-hidden="true")
+

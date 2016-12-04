@@ -1,0 +1,16 @@
+$light_green: #6c9c5a;
+$green: #4e8839;
+$dark_green: #566358;
+$dark: #373e42;
+@import 'common/_mixins';
+@import 'common/_fonts';
+@import 'common/_adjustment';
+@import 'common/_font-awesome';
+@import 'common/png_sprite';
+
+
+@import 'sections/_header';
+@import 'sections/_section_top';
+@import 'sections/_section_about';
+@import 'sections/_section_map';
+@import 'sections/_footer';

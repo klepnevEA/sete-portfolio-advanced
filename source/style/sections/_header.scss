@@ -1,0 +1,100 @@
+// .header {
+//     position: absolute; 
+//     height: 82px; 
+//     width: 100%;
+// }
+
+// .header__bloks {
+//   display: inline-block;
+//   width: 49%;
+// }
+
+// .header__social {
+//   text-align: left;
+// }
+
+// .header__menu {
+//   text-align: right;
+// }
+
+// .social__item {
+//   display: inline-block;
+//   width: 150px;  
+// }
+
+// .social__icon {
+//   width: 100%;
+//   fill: #fff;
+//   fill-opacity: .75;
+//   transition:.3s;
+//   cursor:pointer;
+
+//   &:hover {
+//     fill: $green;    
+//   }
+// }
+
+
+.header {
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute; 
+    height: 86px; 
+    width: 100%;
+    z-index:2;
+}
+
+.header__bloks {
+  align-items: center;
+  padding:0px 30px;
+}
+
+.header__social {
+  text-align: left;
+}
+
+.header__menu {
+  justify-content: flex-end;
+}
+
+.social__item {
+  display: inline-block;
+  width: 27px;
+  margin-right: 26px;
+
+}
+
+.social__icon {
+  width: 100%;
+  height: 50px;  
+  fill: #fff;
+  transition:.3s;
+
+  &_vk {
+    width: 32px;
+  }
+
+  &_github {
+    width: 26px;
+  }  
+
+  &_in {
+    width: 25px;
+  }  
+
+  &:hover {
+    fill: $green;    
+  }
+}
+
+
+
+.menu__link {
+  font-size:3rem;
+  color: #fff;
+  transition:.3s;  
+  
+  &:hover {
+    color: $green;    
+  } 
+}
