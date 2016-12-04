@@ -4,16 +4,18 @@ footer.footer
 	.footer__content
 		.footer__content_top
 			ul.footer__blocks
-				li.footer__blocks-li Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+				li.footer__blocks-li
+					.section-about_text_p.section-about_text_p_white
+						p Этот сайт я сделал в рамках обучения в Школе<br> онлайн образования LoftSchool.
 				li.footer__blocks-li.footer__blocks-li_menu
 					.bottom-menu
 						ul.bottom-menu-list
 							li.bottom-menu-elem 
-								a.bottom-menu-link Мои работы
+								a(href="index.html").bottom-menu-link Мои работы
 							li.bottom-menu-elem 
-								a.bottom-menu-link Обо мне
+								a(href="about.html").bottom-menu-link Обо мне
 							li.bottom-menu-elem
-								a.bottom-menu-link Блог
+								a(href="blog.html").bottom-menu-link Блог
 							li.bottom-menu-elem
 								a.bottom-menu-link Авторизация
 					.bottom-sociale
@@ -23,6 +25,9 @@ footer.footer
 									a.social__link(href="#")
 										svg.social__icon(class="social__icon_" + `${sociale[i]}`)
 											use(xlink:href="assets/img/sprite.svg#" + `${sociale[i]}`)
-				li.footer__blocks-li Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете.<br>— Martin Golding
+				li.footer__blocks-li 
+					.section-about_text_p.section-about_text_p_white 
+						p Всегда пишите код так, будто сопровождать его будет склонный к насилию <br>психопат, который знает, где вы живете.<br>— Martin Golding
 
-		.footer__content_bottom
+		.footer__content_bottom 
+			span.footer__content_bottom_text &copy; Владимир Астахов | Создано с любовью в LoftSchool | 2016

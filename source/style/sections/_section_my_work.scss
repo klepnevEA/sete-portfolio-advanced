@@ -1,0 +1,42 @@
+ .section-my-work { 
+    width:100%;  
+    flex-direction: column;
+}
+
+.section-wraper_my-work {
+    min-height:750px;
+}
+
+.section-block_my-work {
+    justify-content: center;
+
+ 
+}
+
+.portfolio-description {
+    flex: 0 1 auto;
+    align-self: center;
+    flex-direction: column;
+    padding-bottom: 200px;     
+}
+
+.portfolio-description_text {
+    align-self: center; 
+    color: $light_green; 
+    font-family: 'Roboto-Medium';
+    margin-bottom: 60px;      
+}
+
+.portfolio-description_link {
+    background-color: $light_green; 
+    align-self: center;     
+    padding:15px; 
+    color: #FFF; 
+    width: 200px;
+    text-align: center; 
+    border-radius:100px;
+
+    &_span {
+        font-family: 'Roboto-Medium';
+    }      
+}
