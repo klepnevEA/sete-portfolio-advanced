@@ -7,7 +7,7 @@ module.exports = function() {
 
 		spriteData = $.gulp.src('./source/sprite/png/*.png')
 			.pipe($.gp.spritesmith({
-				imgName: 'png_sprite.png',
+				imgName: '../img/png_sprite.png',
 				cssName: 'png_sprite.scss',
 				algoritm: 'left-right',
 				padding: 20

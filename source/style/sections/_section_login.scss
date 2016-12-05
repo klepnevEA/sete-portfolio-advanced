@@ -15,12 +15,13 @@
 
 .login-block {
 	width: 380px;
-    flex: 0 1 auto;
-    align-self: center;	
+	flex: 0 1 auto;
+	align-self: center;	
 
 }
 
 .login-forn__wraper {
+	width: 100%;
 	flex-direction: column;
 	background-color: rgba($dark, 0.8);
 	border-radius: 5px 5px 0 0; 
@@ -30,16 +31,37 @@
 
 .login-block__form {
 	flex-direction: column; 
+
 }
+
+.login-block__elem-wraper {
+	width: 100%;
+	border:0;
+	padding: 16px;
+	font-family: 'Roboto-Regular';
+	color: #b5b4b2;	
+	margin-bottom: 20px;
+}
+
+.login-block__elem-before {
+	content: '';
+	background-color: #f0efe9;
+	width: 45px;
+	border-radius: 25px 0 0 25px;	
+	justify-content: center;
+	align-items: center;
+	color: #c4cbcd;	
+}
+
+
 
 .login-block__elem {
 	width: 100%;
 	border:0;
 	padding: 16px;
 	font-family: 'Roboto-Regular';
-	color: #b5b4b2;	
-	border-radius: 25px;
-	margin-bottom: 20px;
+	border-radius: 0 25px 25px 0;	
+	
 }
 
 .login__form-row {
@@ -54,6 +76,9 @@
 }
 
 .login__radio-title {
+	position: relative;
+	top: -2px;
+	padding-left: 5px;
 	display: inline-block;
 }
 
@@ -96,3 +121,75 @@
 		border:0;
 	}
 }
+
+.login__radio {
+    display: inline-block;  
+    position: relative;
+    margin-right: 20px;
+    vertical-align: middle;
+    white-space: nowrap;  
+
+
+    input {
+      display:none;
+    }  
+}
+
+.login__radio-fake {
+  display: inline-block;  
+  position: relative;  
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-radius:50%;
+    background: $green;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+  }
+}
+
+.login__radio-elem:checked {
+  & + .login__radio-fake {
+
+    &:after {
+      width: 8px;
+      height: 8px;
+    }
+
+    & + .login__radio-title {
+			color: $green;
+    }
+  }
+}
+
+.login__radio_checkbox {
+  & + .login__radio-fake {
+    border-radius: 3px;
+
+  }
+}
+
+
+  .login__radio_checkbox:checked {
+    & + .login__radio-fake {
+			background-color: $green;
+      &:after {
+      	content: "";
+        background: url("../img/icons/check.svg");
+        background-repeat: no-repeat;
+        background-size: contain;      	
+        width: 11px;
+        height: 11px;
+      
+      }
+    }
+  }

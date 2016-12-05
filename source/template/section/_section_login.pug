@@ -5,20 +5,29 @@ section.section
 					.login-forn__wraper
 						h2.title.title_white Авторизуйтесь
 						form.login-block__form
-							input.login-block__elem(type="text" name="name" placeholder="Логин")
-							input.login-block__elem(type="text" name="elogin" placeholder="Пароль")
+							.login-block__elem-wraper
+								.login-block__elem-before
+									i.fa.fa-user(aria-hidden="true")
+								input.login-block__elem(type="text" name="name" placeholder="Логин")
+							.login-block__elem-wraper
+								.login-block__elem-before
+									i.fa.fa-key(aria-hidden="true")
+								input.login-block__elem(type="text" name="elogin" placeholder="Пароль")
 							.login__form-row
 								label.login__radio
-									input.login__radio-elem(name="callback" type="checkbox")
+									input.login__radio_checkbox(name="callback" type="checkbox")
+									.login__radio-fake
 									.login__radio-title Я не робот
 							.login__form-row
 								.login__question Вы точно не робот?
 							.login__form-row
 								label.login__radio
 									input.login__radio-elem(name="yes" type="radio" value="Да")
+									.login__radio-fake
 									.login__radio-title Да
 								label.login__radio 
 									input.login__radio-elem(name="yes" type="radio" value="Не уверен")
+									.login__radio-fake
 									div.login__radio-title Не уверен
 							.login-block__form-buttons
 								//- input.login-block__button(name="" type="submit" value="На главную")
