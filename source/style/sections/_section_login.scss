@@ -1,0 +1,98 @@
+.section-login {
+	position: relative;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	background-image: url("../../assets/img/images_1800/bg/forest.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.login-block {
+	width: 380px;
+    flex: 0 1 auto;
+    align-self: center;	
+
+}
+
+.login-forn__wraper {
+	flex-direction: column;
+	background-color: rgba($dark, 0.8);
+	border-radius: 5px 5px 0 0; 
+	opacity:0.95;	
+	padding: 20px 20px 0;
+}
+
+.login-block__form {
+	flex-direction: column; 
+}
+
+.login-block__elem {
+	width: 100%;
+	border:0;
+	padding: 16px;
+	font-family: 'Roboto-Regular';
+	color: #b5b4b2;	
+	border-radius: 25px;
+	margin-bottom: 20px;
+}
+
+.login__form-row {
+	text-align: center;
+	width: 100%;
+}
+
+.login__radio {
+	width: 100%;
+	color: #fff;
+	font-family: 'Roboto-Regular';	
+}
+
+.login__radio-title {
+	display: inline-block;
+}
+
+.login__question {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	font-family: 'Roboto-Regular';
+	line-height:1em;
+	padding: 20px 0;	
+} 
+
+
+.login-block__form-buttons {
+	margin:0 -20px;
+	height: 46px;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-content: stretch;
+	align-items: stretch;
+	margin-top:40px;	
+}
+
+.login-block__button {
+	border:0px;
+	width: 100px;
+	background-color: $green;
+	flex: 1 0 auto;
+	align-self: stretch;
+	border-right:	2px solid #a2bd9d;
+	color: #fff;
+	font-family: 'Roboto-Regular';	
+	cursor: pointer;
+	text-align: center;
+	padding-top:12px;
+
+	&:last-child{
+		border:0;
+	}
+}

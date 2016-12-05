@@ -30,6 +30,19 @@
 	font-family: 'Roboto-Medium';	
 }
 
+.list-article__elem {
+	margin-bottom:20px;
+	
+	&:after {
+		content: '';
+		display: inline-block;
+		height: 5px;
+		width: 80%;
+		margin-top:20px;
+		background-color: #ecebe4;
+	}
+}
+
 .section-blog__article {
 	width: 200px;
 	flex: 3 0 auto;
