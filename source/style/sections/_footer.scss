@@ -76,3 +76,11 @@
     font-family: 'Roboto-Regular';
     color: #fff; 
 }
+
+.bottom-menu-link {
+	color: #fff;
+	transition:.3s;
+	&:hover {
+		color: $green;
+	}
+}

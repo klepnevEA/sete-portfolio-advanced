@@ -14,14 +14,17 @@
 }
 
 .login-block {
-	width: 380px;
+	width: 100%;
+	height: 100%;
 	flex: 0 1 auto;
 	align-self: center;	
-
+	justify-content: center;
+	align-items: center;
+	padding-bottom:50px;	
 }
 
 .login-forn__wraper {
-	width: 100%;
+	width: 380px;
 	flex-direction: column;
 	background-color: rgba($dark, 0.8);
 	border-radius: 5px 5px 0 0; 
@@ -107,7 +110,7 @@
 .login-block__button {
 	border:0px;
 	width: 100px;
-	background-color: $green;
+	background-color: $light_green;
 	flex: 1 0 auto;
 	align-self: stretch;
 	border-right:	2px solid #a2bd9d;
@@ -116,6 +119,11 @@
 	cursor: pointer;
 	text-align: center;
 	padding-top:12px;
+
+  &:hover {
+  	background-color: $green;   	
+  }
+
 
 	&:last-child{
 		border:0;

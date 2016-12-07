@@ -1,5 +1,6 @@
 $light_green: #6c9c5a;
 $green: #4e8839;
+
 $dark_green: #566358;
 $dark: #373e42;
 @import 'common/_mixins';
@@ -12,6 +13,7 @@ $dark: #373e42;
 @import 'sections/_header';
 
 @import 'sections/_section_login';
+@import 'sections/_section_index';
 
 @import 'sections/_section_top';
 @import 'sections/_section_about';
@@ -20,5 +22,7 @@ $dark: #373e42;
 @import 'sections/_section_my_work';
 @import 'sections/_section_what_about_me';
 @import 'sections/_section_blog';
+@import 'sections/_header_autorization';
 
 @import 'sections/_footer';
+@import 'sections/_footer_transparent';

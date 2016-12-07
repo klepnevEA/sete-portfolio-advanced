@@ -1,0 +1,9 @@
+- var sociale = ['vk', 'github', 'in']
+
+		.button-sociale
+			ul.social__list
+				- for (var i = 0; i < sociale.length; i++)
+						li.social__item
+							a.social__link(href="#")
+								svg.social__icon(class="social__icon_" + `${sociale[i]}`)
+									use(xlink:href="assets/img/sprite.svg#" + `${sociale[i]}`)

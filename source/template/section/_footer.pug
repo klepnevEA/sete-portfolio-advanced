@@ -1,5 +1,3 @@
-- var sociale = ['vk', 'github', 'in']
-
 footer.footer
 	.footer__content
 		.footer__content_top
@@ -17,17 +15,11 @@ footer.footer
 							li.bottom-menu-elem
 								a(href="blog.html").bottom-menu-link Блог
 							li.bottom-menu-elem
-								a.bottom-menu-link Авторизация
-					.bottom-sociale
-						ul
-							- for (var i = 0; i < sociale.length; i++)
-								li.social__item
-									a.social__link(href="#")
-										svg.social__icon(class="social__icon_" + `${sociale[i]}`)
-											use(xlink:href="assets/img/sprite.svg#" + `${sociale[i]}`)
+								a(href="login.html").bottom-menu-link Авторизация
+					include ../elements/_social_icons
 				li.footer__blocks-li 
 					.section-about_text_p.section-about_text_p_white 
 						p Всегда пишите код так, будто сопровождать его будет склонный к насилию <br>психопат, который знает, где вы живете.<br>— Martin Golding
 
 		.footer__content_bottom 
-			span.footer__content_bottom_text &copy; Владимир Астахов | Создано с любовью в LoftSchool | 2016
+			span.footer__content_bottom_text &copy; Евгений Клепнев | Создано с любовью в LoftSchool | 2016

@@ -8,16 +8,19 @@
 }
 
 .section-block_my-work {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: center;
-
- 
+    align-content: stretch;
+    align-items: center;
+    height: 100%;
 }
 
 .portfolio-description {
     flex: 0 1 auto;
     align-self: center;
     flex-direction: column;
-    padding-bottom: 200px;     
 }
 
 .portfolio-description_text {
