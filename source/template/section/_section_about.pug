@@ -21,20 +21,20 @@ section.section
 				h2.title.title_section-about Чем я могу быть<br> вам полезен
 				.section-about_text_p 
 					p Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
-					ul
-						li Frontend
-							ul
-								li HTML 5
-								li CSS 3
-								li JavaScript & Jquery
-						li Backend
-							ul
-								li PHP
-								li mySQL
-								li Node.js & npm
-								li Mongo.db
-						li WorkFlow
-							ul
-								li Git
-								li Gulp
-								li Bower														
+					ul.skills
+						- var skills_list = {'Frontend': ['HTML 5', 'CSS 3', 'JavaScript & Jquery'], 'Backend': ['PHP', 'mySQL', 'Node.js & npm', 'Mongo.db'],  'WorkFlow' : ['Git', 'Gulp', 'Bower']}
+							- for (var name in skills_list)
+								li(class='skills__title') #{name}
+									ul.skills__list
+										- for (var i = 0; i < skills_list[name].length; i++)
+											li.skills__elem 
+												span.skills__text #{skills_list[name][i]}
+												svg(id=circle_id width="122" height="122").g_circles
+													circle(r="45" cx="61" cy="61" stroke="#ccc" fill="none")
+													circle(r="45" cx="61" cy="61" stroke="crimson" transform="rotate(-90 61 61)").sector
+
+
+
+
+	
+

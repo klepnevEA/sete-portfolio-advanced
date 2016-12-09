@@ -9,5 +9,19 @@ header.header
 		.header__button
 			.header__button-icon
 				a.menu__link(href="#")
-					i.fa.fa-bars(aria-hidden="true")
+					.full-screen-menu__button#full-screen-menu__toggle
+						span.full-screen-menu__button_top
+						span.full-screen-menu__button_middle
+						span.full-screen-menu__button_bottom
+	.full-screen__wraper#full-screen__wraper
+		nav.full-screen__menu
+			ul.full-screen__menu_list
+				li.full-screen__menu_elem
+					a.full-screen__menu_link(href='about.html') Обо мне
+				li.full-screen__menu_elem
+					a.full-screen__menu_link(href='my_work.html') Мои работы
+				li.full-screen__menu_elem
+					a.full-screen__menu_link(href='blog.html') Блог
+				li.full-screen__menu_elem
+					a.full-screen__menu_link(href='login.html') Авторизация
 

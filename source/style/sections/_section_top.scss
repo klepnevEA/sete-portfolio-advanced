@@ -108,13 +108,11 @@
 }
 
 .section-top__block-bottom {
-	position: absolute;
 	height: 20px;
-	bottom:0;
-	z-index:100;
+	margin-top: 26px;
 }
 .section-top__button {
-	width: 100%;
+	width: 33px;
 }
 
 .section-top__button-svg {
@@ -127,4 +125,8 @@
 	&:hover {
 		opacity:1;		
 	}
+}
+
+.svg.section-top__button-svg {
+	width: 33px;
 }

@@ -1,7 +1,14 @@
 (function() {
   'use strict';
 
-  setTimeout(function() {
-    document.querySelector('.greating_picture').classList.add('m--show');
-  }, 1000);
+  $('#full-screen-menu__toggle').on('click', function() {
+  	console.log('!');
+		$(this).toggleClass('active');
+		$('#full-screen__wraper').toggleClass('open');
+  }); 
+
+ // $('#full-screen-menu__toggle').click(function() {
+ //   $(this).toggleClass('active');
+ //   $('#overlay').toggleClass('open');
+ //  });
 })();

@@ -51,3 +51,62 @@
 .title_section-about {
 	top: 13px;
 }
+
+
+/*skills*/
+
+.skills {
+    display: flex;
+    flex-direction: column;
+    margin-bottom:37px;
+}
+
+.skills__title {
+    display: flex;    
+    flex-direction: column;
+    margin-top: 50px;    
+    font-family: 'Roboto-Medium';
+    color: $dark_green;
+    font-size: 1.75rem;            
+}
+
+.skills__list {
+    display: flex;   
+    flex-direction: row;
+    flex-wrap:wrap;
+    color: $green;
+    font-size: 0.85rem;        
+}
+
+.skills__elem {
+    display: flex; 
+    position: relative;    
+    width: 122px;
+    height: 122px;
+    margin: 20px 40px 0 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.g_circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+  fill: none;
+  stroke-width: 21;
+ 
+}
+.sector {
+    stroke-dasharray: 0 722;
+    transition: all 1s;
+     stroke: $green;    
+}
+
+.g_circles:hover .sector {
+   stroke-dasharray: 250 722;
+}
+
+.skills__text {
+   max-width:64px;
+   text-align: center 
+}
