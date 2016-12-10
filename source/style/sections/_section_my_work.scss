@@ -3,7 +3,15 @@
     flex-direction: column;
 }
 
+.main_title_my-work {
+     @include phones {
+        background-color: #ebefe1;;
+    }   
+}
+
 .section-wraper_my-work {
+    display: block;
+    position: relative;
     min-height:750px;
 }
 
@@ -15,6 +23,7 @@
     align-content: stretch;
     align-items: center;
     height: 100%;
+    width: 100%;
 }
 
 .portfolio-description {
@@ -27,7 +36,11 @@
     align-self: center; 
     color: $light_green; 
     font-family: 'Roboto-Medium';
-    margin-bottom: 60px;      
+    margin-bottom: 60px; 
+
+    @include tablets {
+        margin-bottom: 15px; 
+    }          
 }
 
 .portfolio-description_link {
@@ -42,4 +55,123 @@
     &_span {
         font-family: 'Roboto-Medium';
     }      
+}
+
+
+
+.section-slider-wraper {
+    position: relative;
+    display: block; 
+    height: 100vh;   
+}
+
+.section-block_slider {
+    display: block;
+    position: absolute;
+    float: left;
+    height:100%;
+}
+
+.section-block_slider_left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+
+    @include tablets {
+        position:static;
+        width: 100%;
+        height: 30%;
+    }     
+
+}
+
+.slider {
+    display: block;
+    position: relative;
+   @extend %clearfix;
+   width: 100%;
+   height: 100%;
+}
+
+.slider__block-display {
+    position: absolute;
+    display: block;
+    right: 0;
+    bottom: 0;
+    top: 0;    
+    width: 50%;
+    height: 80%;
+    background-image: url("../../assets/img/slider/work-1.png");
+    background-size: 60%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #e1e4d7;
+    box-shadow: 0 0 100px #e1e4d7 inset;
+    z-index:10;
+
+    @include tablets {
+        position:static;
+        width: 100%;
+        height: 50%;        
+    } 
+
+}
+
+.slider__block-controls {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    display: block;    
+    height: 20%;
+
+    @include tablets {
+        position:static;
+        width: 100%;
+    }     
+}
+
+.slider__block-button {
+    display: block; 
+    position: relative;   
+    float: left;
+    width: 50%;
+    height: 100%;
+    background-image: url("../../assets/img/slider/work-1.png");
+    background-size: auto 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-align: center; 
+    cursor: pointer;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #b9beb5; /* Old browsers */
+        background: -moz-linear-gradient(left,  #b9beb5 0%, #c2c6bd 49%, #b2b7ae 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(left,  #b9beb5 0%,#c2c6bd 49%,#b2b7ae 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right,  #b9beb5 0%,#c2c6bd 49%,#b2b7ae 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b9beb5', endColorstr='#b2b7ae',GradientType=1 ); /* IE6-9 */
+        opacity: 0.5;
+    }   
+}
+
+.slider__block-button-svg {
+    position: relative;
+    width: 43px;
+    fill: #fff;
+    z-index:100;
+    opacity:0.8;
+    
+
+}
+
+.slider__block-button-svg_after {
+    transform: rotate(180deg);
 }

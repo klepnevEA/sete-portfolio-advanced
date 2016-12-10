@@ -1,3 +1,19 @@
+.section-block-wraper {
+    @include desctop {
+        flex-wrap: wrap;
+    }
+
+     @include laptop {
+        padding: 0 20vw;
+        padding-bottom:47px;        
+    }
+
+     @include phones {
+        padding: 0;
+        padding-bottom:47px;        
+    }        
+}
+
 .section-about_info,
 .section-about_text,
 .section-about_text_p {
@@ -9,22 +25,33 @@
 
 .section-about_title {
 	width: 47%;
+
+    @include desctop {
+        width: 70%;
+        margin: 0 auto;
+    }    
 }
 
 .section-about_info {
 	width: 53%;
-  padding-left: 11px;	
+  padding-left: 11px;
+
+  @include desctop {
+        width: 100%;
+  }      	
 }
 
 .main_title_section-about {
-	top: -10px;
 	left: 17px;
-
 }
 
 
 .main_title_section-about {
 	top: -41px;
+
+    @include laptop {
+        top: 0px;
+    }     
 }
 
 .section-about_img {
@@ -36,7 +63,7 @@
 
 .section-about_photo {
     width: 100%;
-		align-self: flex-start;	
+    align-self: flex-start;	
 }
 
 .section-about_text {
@@ -67,7 +94,11 @@
     margin-top: 50px;    
     font-family: 'Roboto-Medium';
     color: $dark_green;
-    font-size: 1.75rem;            
+    font-size: 1.75rem;
+
+     @include laptop {
+        text-align: center;
+    }               
 }
 
 .skills__list {
@@ -75,7 +106,13 @@
     flex-direction: row;
     flex-wrap:wrap;
     color: $green;
-    font-size: 0.85rem;        
+    font-size: 0.85rem; 
+
+    @include laptop {
+        justify-content: center; 
+    }
+
+     
 }
 
 .skills__elem {
@@ -86,27 +123,31 @@
     margin: 20px 40px 0 0;
     align-items: center;
     justify-content: center;
+
+    @include phones {
+        margin: 20px 0px;
+    }    
 }
 
 .g_circles {
     position: absolute;
     top: 0;
     left: 0;
-  fill: none;
-  stroke-width: 21;
- 
+    fill: none;
+    stroke-width: 21;
+
 }
 .sector {
     stroke-dasharray: 0 722;
     transition: all 1s;
-     stroke: $green;    
+    stroke: $green;    
 }
 
 .g_circles:hover .sector {
-   stroke-dasharray: 250 722;
+ stroke-dasharray: 250 722;
 }
 
 .skills__text {
-   max-width:64px;
-   text-align: center 
+ max-width:64px;
+ text-align: center 
 }

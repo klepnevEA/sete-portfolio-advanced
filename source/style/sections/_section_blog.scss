@@ -1,15 +1,29 @@
 .section-blog {
+	position: relative;
 	width: 100%;
 	padding-top:69px;
 	padding-bottom:185px;
+
+	@include laptop {
+		padding-bottom:270px;
+	}	
+
+	@include tablets {
+		padding-bottom:320px;
+	}		
 
 }
 
 .section-blog__list-topics {
 	width: 200px;
 	flex: 1 0 auto;
-	padding:0 100px 0 0;
+	padding:0 4vw 0 0;
 	text-align: right;
+
+	@include tablets {
+		position: absolute;
+		left:-200px;
+	}	
 }
 
 .list-topics {
@@ -47,6 +61,10 @@
 	width: 200px;
 	flex: 3 0 auto;
 	align-self: stretch;
+
+	@include tablets {
+		padding:0 5vw;
+	}		
 }
 
 .list-article__title {

@@ -55,32 +55,6 @@ div {
     display: flex;
 }
 
-
-
-// .wrapper {
-//     position: relative;
-//     overflow: hidden;
-//     min-width: 960px;
-//     height: 100%;
-//     @extend %clearfix;
-// }
-
-// .main {
-//     height: 100%;
-// }
-
-// .section {
-
-// }
-
-// .container {
-//     margin: 0 auto;
-//     position: relative;
-//     width: 100%;
-//     @extend %clearfix;    
-// }
-
-
 .wrapper {
     display: flex;
     position: relative;
@@ -111,7 +85,7 @@ div {
     position: relative;
     margin:0;
     width: 100%;
-
+    z-index:100;
     text-align: center;
     text-transform: uppercase; 
 
@@ -135,7 +109,17 @@ div {
         height:3px;
         background-color: $dark;
 
-    }           
+    } 
+
+    @include laptop {
+        font-size:3rem;
+        padding-top: 20px;
+    }
+
+    @include phones {
+        font-size:2.13rem;
+        padding-top: 25px;
+    }                  
 }
 
 .title_svg {
@@ -193,7 +177,15 @@ div {
         &:after{
             background-color: #fff;           
         }
-    }   
+    } 
+
+    @include laptop {
+        margin-bottom: 25px; 
+    }  
+
+    @include laptop {
+        font-size: 1.31rem; 
+    }          
 }
 
 .section-about_text_p {
@@ -203,6 +195,11 @@ div {
         color: $dark_green;
         line-height:1.5em;
         margin-bottom:5px;
+        
+        @include phones {
+            line-height:1.4em;
+        }  
+
     }
 
     &_white {
@@ -219,7 +216,11 @@ div {
     justify-content: space-around;
     align-content: flex-end;
     align-items: stretch;
-    min-height:100px;       
+    min-height:100px;
+
+    @include laptop {
+        flex-direction: column; 
+    }            
 }
 
 .section-block {
@@ -239,8 +240,17 @@ div {
         justify-content: flex-start;
         align-content: stretch;
         align-items: stretch;
-        padding: 0px 30px;        
+        padding: 0px 30px;
+
+        @include phones {
+            padding: 0px 10px;
+        }               
     }
+
+    @include laptop {
+        width: 100%;
+        padding-top:50px;      
+    }    
 }
 
 

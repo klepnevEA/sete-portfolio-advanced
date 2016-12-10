@@ -1,13 +1,14 @@
 section.section
 	.container
 		.section-my-work
-			.main_title
+			.main_title.main_title_my-work
 				h1.main_title_h1 Мои работы
 				.title_svg
 					svg.section-about_bg_svg
 						use(xlink:href="assets/img/sprite.svg#works_header")
-			.section-wraper.section-wraper_my-work
-				.section-block.section-block_left
+			.section-slider-wraper
+				.slider__block-display
+				.section-block_slider_left
 					.section-block_my-work
 						.portfolio-description 
 							h2.title.title_section-about Сайт школы онлайн <br>Образования
@@ -15,5 +16,10 @@ section.section
 							a.portfolio-description_link 
 								i.fa.fa-bars(aria-hidden="true") 
 									span.portfolio-description_link_span Посмотреть сайт
-				.section-block.section-block_right
-					.section-about_title Тут будет слайдер
+				.slider__block-controls
+					a.slider__block-button
+						svg.slider__block-button-svg.slider__block-button-svg_before
+							use(xlink:href="assets/img/sprite.svg#portf_arrow_down")
+					a.slider__block-button
+						svg.slider__block-button-svg.slider__block-button-svg_after
+							use(xlink:href="assets/img/sprite.svg#portf_arrow_down")

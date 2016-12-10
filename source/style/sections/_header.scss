@@ -62,15 +62,9 @@
   } 
 }
 
-$color-background: #F5F5F5;
-$color-main: #FF5252;
-$color-active: #FFF;
-$color-link: #FFF;
-
-
 .full-screen-menu__button {
-  position: fixed;
-  top: 5%;
+  position: absolute;
+  top: 31px;
   right: 2%;
   height: 27px;
   width: 35px;
@@ -209,23 +203,22 @@ $color-link: #FFF;
   color: #fff;
   line-height: 1em;
   font-family: 'Sansus-Webissimo';
-  overflow: hidden;
 
   &:hover:after,
   &:focus:after,
   &:active:after {
-   width: 100%;
+   width: 80px;
  }
 
  &:after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -20px;
   left: 50%;
   width: 0%;
   transform: translateX(-50%);
   height: 3px;
-  background: $color-link;
+  background: #fff;
   transition: .35s;
 }
 }

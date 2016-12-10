@@ -1,19 +1,22 @@
 extends ../_layout_about
 
 block variables
-	- var title = 'About'
+	- var title = 'my_work'
+
+block head  	
+	include ../elements/_head
 
 block header
 	include ../section/_header
 
-block section_top
-	include ../section/_section_top
+block section_top_my_work
+	include ../section/_section_top_my_work
 
-block section_my_work
-	include ../section/_section_my_work
+block section_about
+	include ../section/_section_about
 
-block section_what_about_me
-	include ../section/_section_what_about_me
+block section_map
+	include ../section/_section_map	
 
 block footer
 	include ../section/_footer

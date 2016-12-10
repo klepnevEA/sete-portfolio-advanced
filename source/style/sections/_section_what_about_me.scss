@@ -8,6 +8,14 @@
 	background-repeat: no-repeat;
 	background-position: center 0;
 	justify-content: center;	
+
+	@include laptop {
+		min-height:1600px;
+	}
+
+	@include phones {
+		min-height:1700px;
+	}	
 }
 
 .main_title_section-what-about-me {
