@@ -2,17 +2,51 @@ section.section
 	.container
 		.section-index
 			.index-block
-				.index-forn__wraper
-					.section-index_photo
-						img.section-index_img(alt="Фото" src="assets/img/photos/photo.jpg")
-					.section-top_index
-						.section-index_name Евгений Клепнев
-						.section-index_info Личный сайт веб разработчика	
-					include ../elements/_social_icons					
-					.index-block__form-buttons
-						a.index-block__button(href="my_work.html") Мои работы
-						a.index-block__button(href="about.html") Обо мне
-						a.index-block__button(href="blog.html") Блог
+				.login-forn__flip
+					.index-wraper
+						.index-forn__wraper
+							.section-index_photo
+								img.section-index_img(alt="Фото" src="assets/img/photos/photo.jpg")
+							.section-top_index
+								.section-index_name Евгений Клепнев
+								.section-index_info Личный сайт веб разработчика	
+							include ../elements/_social_icons					
+							.index-block__form-buttons
+								a.index-block__button(href="my_work.html") Мои работы
+								a.index-block__button(href="about.html") Обо мне
+								a.index-block__button(href="blog.html") Блог
+						.login-forn__wraper
+							h2.title.title_white Авторизуйтесь
+							form.login-block__form
+								.login-block__elem-wraper
+									.login-block__elem-before
+										i.fa.fa-user(aria-hidden="true")
+									input.login-block__elem(type="text" name="name" placeholder="Логин")
+								.login-block__elem-wraper
+									.login-block__elem-before
+										i.fa.fa-key(aria-hidden="true")
+									input.login-block__elem(type="text" name="elogin" placeholder="Пароль")
+								.login__form-row
+									label.login__radio
+										input.login__radio_checkbox(name="callback" type="checkbox")
+										.login__radio-fake
+										.login__radio-title Я не робот
+								.login__form-row
+									.login__question Вы точно не робот?
+								.login__form-row
+									label.login__radio
+										input.login__radio-elem(name="yes" type="radio" value="Да")
+										.login__radio-fake
+										.login__radio-title Да
+									label.login__radio 
+										input.login__radio-elem(name="yes" type="radio" value="Не уверен")
+										.login__radio-fake
+										div.login__radio-title Не уверен
+								.login-block__form-buttons
+									//- input.login-block__button(name="" type="submit" value="На главную")
+									//- input.login-block__button(name="" type="submit" value="Войти")
+									a.login-block__button(href="about.html") На главную
+									a.login-block__button(href="about.html") Войти						
 
 
 

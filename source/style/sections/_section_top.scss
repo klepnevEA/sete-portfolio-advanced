@@ -7,6 +7,18 @@
 	background-image: url("../../assets/img/images_1800/bg/forest.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
+
+@include desctop {
+	background-image: url("../../assets/img/images_1200/bg/forest.jpg");
+} 
+
+@include tablets {
+	background-image: url("../../assets/img/images_768/bg/forest.jpg");
+} 
+
+@include phones {
+	background-image: url("../../assets/img/images_320/bg/forest.jpg");
+} 
 }
 
 .section-top_about {
@@ -138,4 +150,10 @@
 
 .svg.section-top__button-svg {
 	width: 33px;
+}
+
+.corners__svg_resize_white {
+	@include laptop {
+		fill: #ebefe1;
+	}		
 }
