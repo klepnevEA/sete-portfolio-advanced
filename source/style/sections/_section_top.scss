@@ -8,17 +8,17 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 
-@include desctop {
-	background-image: url("../../assets/img/images_1200/bg/forest.jpg");
-} 
+// @include desctop {
+// 	background-image: url("../../assets/img/images_1200/bg/forest.jpg");
+// } 
 
-@include tablets {
-	background-image: url("../../assets/img/images_768/bg/forest.jpg");
-} 
+// @include tablets {
+// 	background-image: url("../../assets/img/images_768/bg/forest.jpg");
+// } 
 
-@include phones {
-	background-image: url("../../assets/img/images_320/bg/forest.jpg");
-} 
+// @include phones {
+// 	background-image: url("../../assets/img/images_320/bg/forest.jpg");
+// } 
 }
 
 .section-top_about {
@@ -130,7 +130,8 @@
 
 .section-top__block-bottom {
 	height: 20px;
-	margin-top: 26px;
+	margin-top: 30px;
+
 }
 .section-top__button {
 	width: 33px;
@@ -156,4 +157,23 @@
 	@include laptop {
 		fill: #ebefe1;
 	}		
+}
+
+
+.Background {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.Background::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), transparent 50%, rgba(0, 0, 0, 0.5));
 }

@@ -1,7 +1,8 @@
 'use strict';
 
-import {screenMenu, parallaxScroll, rotateLogin} from './module';
+import {screenMenu, parallaxScroll, rotateLogin, waterMaps} from './module';
 
 screenMenu();
 parallaxScroll();
 rotateLogin();
+waterMaps();
