@@ -6,20 +6,49 @@ section.section
 				.title_svg
 					svg.section-about_bg_svg
 						use(xlink:href="assets/img/sprite.svg#works_header")
-			.section-slider-wraper
-				.slider__block-display
-				.section-block_slider_left
-					.section-block_my-work
-						.portfolio-description 
-							h2.title.title_section-about Сайт школы онлайн <br>Образования
-							.portfolio-description_text HTML, CSS, JS
-							a.portfolio-description_link 
-								i.fa.fa-bars(aria-hidden="true") 
-									span.portfolio-description_link_span Посмотреть сайт
-				.slider__block-controls
-					a.slider__block-button
-						svg.slider__block-button-svg.slider__block-button-svg_before
-							use(xlink:href="assets/img/sprite.svg#portf_arrow_down")
-					a.slider__block-button
-						svg.slider__block-button-svg.slider__block-button-svg_after
-							use(xlink:href="assets/img/sprite.svg#portf_arrow_down")
+			.works__content
+					.works__left
+						.works-slider__content
+							.works-slider__content-wrapper
+							.works-slider__display
+								img.works-slider__display-pic(src='')
+							.works__subtitle
+								.works__subtitle
+									.subtitle
+								.works__content-desc
+								.works__content-btn
+									a.works__content-view(href='#')
+										i.fa.works__content-view-icon.fa-link
+										|  Посмотреть сайт
+					.works__right
+						.works-slider
+							.works-slider__controls
+								a.works-slider__control-btn.works-slider__control-btn_left(href='#')
+									ul.works-slider__control-list
+										li.works-slider__control-item(data-full='./assets/img/slider/1.png', data-title='Агентсво интернет решений "ITLoft"', data-skills='node', data-link='http://itloft.ru/')
+											img.works-slider___control-img(src='./assets/img/slider/1.png')
+										li.works-slider__control-item(data-full='./assets/img/slider/2.png', data-title='Школа онлай-образования "LoftSchool"', data-skills='html5, CSS3, javascript, php', data-link='http://loftschool.com/')
+											img.works-slider___control-img(src='./assets/img/slider/2.png')
+										li.works-slider__control-item(data-full='./assets/img/slider/3.png', data-title='Портал обучающих уроков "LoftBlog"', data-skills='Ruby on Rails, javascript, RESTful', data-link='http://loftblog.ru/')
+											img.works-slider___control-img(src='./assets/img/slider/3.png')
+										li.works-slider__control-item(data-full='./assets/img/slider/4.png', data-title='Сайт "Атма йога"', data-skills='UX, design, seo', data-link='http://atmayoga.ru/')
+											img.works-slider___control-img(src='./assets/img/slider/4.png')
+								a.works-slider__control-btn.works-slider__control-btn_right(href='#')
+
+			//- .section-slider-wraper
+			//- 	.slider__block-display
+			//- 	.section-block_slider_left
+			//- 		.section-block_my-work
+			//- 			.portfolio-description 
+			//- 				h2.title.title_section-about Сайт школы онлайн <br>Образования
+			//- 				.portfolio-description_text HTML, CSS, JS
+			//- 				a.portfolio-description_link 
+			//- 					i.fa.fa-bars(aria-hidden="true") 
+			//- 						span.portfolio-description_link_span Посмотреть сайт
+			//- 	.slider__block-controls
+			//- 		a.slider__block-button
+			//- 			svg.slider__block-button-svg.slider__block-button-svg_before
+			//- 				use(xlink:href="assets/img/sprite.svg#portf_arrow_down")
+			//- 		a.slider__block-button
+			//- 			svg.slider__block-button-svg.slider__block-button-svg_after
+			//- 				use(xlink:href="assets/img/sprite.svg#portf_arrow_down")
