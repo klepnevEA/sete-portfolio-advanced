@@ -6,6 +6,27 @@ var screenMenu = () =>  {
 };
 
 
+var map = () =>  (function(){
+        ymaps.ready(init);
+        var myMap, 
+            myPlacemark;
+
+        function init(){ 
+            myMap = new ymaps.Map("map", {
+                center: [55.76, 37.64],
+                zoom: 7
+            }); 
+            
+            myPlacemark = new ymaps.Placemark([55.76, 37.64], {
+                hintContent: 'Москва!',
+                balloonContent: 'Столица России'
+            });
+            
+            myMap.geoObjects.add(myPlacemark);
+        }
+}());
+
+
 var rotateLogin = () =>  (function(){
 		var button = $('.button-autorization'),
 				indexFornWraper = $('.login-forn__flip'),
@@ -63,4 +84,4 @@ $(window).scroll(function(){
 }());
 
 
-export { screenMenu, parallaxScroll,rotateLogin};
+export { screenMenu, parallaxScroll,rotateLogin, map};

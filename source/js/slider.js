@@ -1,60 +1,6 @@
 
 var slider = () => (function(){
 
-var aviatitle = {
-    generate : function (string, block) {
-        var
-            wordsArray = string.split(' '), // найти массив слов
-            stringArray = string.split(''), // найти массив всех симовлов в строке
-            sentence = [],
-            word = '';
-
-        block.text(''); // очищаем блок вывода
-
-        wordsArray.forEach(function(currentWord) {
-            var wordsArray = currentWord.split(''); // массив символов в слове
-
-            wordsArray.forEach(function(letter) {
-                var letterHtml = '<span class="letter-span">' + letter + '</span>';
-                // каждую букву оборачиваем в свой span
-                word += letterHtml;
-            });
-            // берем отдельное слово и оборачиваем его в класс
-            var wordHTML = '<span class="letter-word">' + word + '</span>'
-            // добавим в массив предложения
-            sentence.push(wordHTML);
-            word = '';
-        });
-        // добавим в блок сгенерированую разметку для предложения
-        block.append(sentence.join(' '));
-
-        // анимация появления
-        var
-            letters = block.find('.letter-span'), // найдем все наши буквы
-            counter = 0,
-            timer,
-            duration = 500 / stringArray.length; // находим длительность для каждой буквы
-
-        function showLetters() {
-            var currentLetter = letters.eq(counter);
-
-            currentLetter.addClass('active');
-            counter++;
-
-            if (typeof timer !== 'undefined') {
-                clearTimeout(timer);
-            }
-
-            timer = setTimeout(showLetters, duration);
-        }
-
-        showLetters();
-
-    },
-};
-
-
-
 var Slider = function(container) {
     var
         nextBtn     = container.find('.works-slider__control-btn_left'),
@@ -66,9 +12,9 @@ var Slider = function(container) {
         link        = container.find('.works__content-view'),
         itemsLength = items.length,
         duration    = 500,
-	    	flag        = true;
+	    flag        = true;
 
-	var timeout;
+		var timeout;
 
     this.counter = 0;
 
@@ -84,7 +30,7 @@ var Slider = function(container) {
             .removeClass('active')
             .eq(this.counter + 1)
             .addClass('active');
-    }
+    };
     // Вытащить данные из дата атрибутов для левой части слайдера
     var getDataArrays = function() {
         var dataObject = {
@@ -104,7 +50,7 @@ var Slider = function(container) {
         });
 
         return dataObject;
-    }
+    };
 
     var slideInLeftBtn = function(slide) {
         var
@@ -124,7 +70,7 @@ var Slider = function(container) {
 			    });
 
 
-    }
+    };
 
     var slideInRightBtn = function (slide) {
         var
@@ -161,7 +107,7 @@ var Slider = function(container) {
                 image.attr('src', data.pics[slide]);
                 $(this).fadeIn(duration / 2);
             });
-    }
+    };
 
     var changeTextData = function(slide) {
         var data = getDataArrays();
@@ -174,7 +120,7 @@ var Slider = function(container) {
 
         // ссылка
         link.attr('href', data.link[slide]);
-    }
+    };
 
     // public
     this.setDefaults = function() {
@@ -259,9 +205,66 @@ var Slider = function(container) {
 		    slideInRightBtn(_that.counter);
 		    changeMainPicture(_that.counter);
 		    changeTextData(_that.counter);
-	    }
+	    };
     };
 };
+
+
+var aviatitle = {
+    generate : function (string, block) {
+        var
+            wordsArray = string.split(' '), // найти массив слов
+            stringArray = string.split(''), // найти массив всех симовлов в строке
+            sentence = [],
+            word = '';
+
+        block.text(''); // очищаем блок вывода
+
+        wordsArray.forEach(function(currentWord) {
+            var wordsArray = currentWord.split(''); // массив символов в слове
+
+            wordsArray.forEach(function(letter) {
+                var letterHtml = '<span class="letter-span">' + letter + '</span>';
+                // каждую букву оборачиваем в свой span
+                word += letterHtml;
+            });
+            // берем отдельное слово и оборачиваем его в класс
+            var wordHTML = '<span class="letter-word">' + word + '</span>'
+            // добавим в массив предложения
+            sentence.push(wordHTML);
+            word = '';
+        });
+        // добавим в блок сгенерированую разметку для предложения
+        block.append(sentence.join(' '));
+
+        // анимация появления
+        var
+            letters = block.find('.letter-span'), // найдем все наши буквы
+            counter = 0,
+            timer,
+            duration = 500 / stringArray.length; // находим длительность для каждой буквы
+
+        function showLetters() {
+            var currentLetter = letters.eq(counter);
+
+            currentLetter.addClass('active');
+            counter++;
+
+            if (typeof timer !== 'undefined') {
+                clearTimeout(timer);
+            }
+
+            timer = setTimeout(showLetters, duration);
+        }
+
+        showLetters();
+
+    },
+};
+
+/*-----------------*/
+
+
 
 
 
@@ -285,7 +288,7 @@ $('.works-slider__control-btn_right').on('click', function(e){
 
 
 
-}());
+     }());
 
 
 
