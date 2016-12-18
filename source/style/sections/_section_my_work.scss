@@ -1,5 +1,6 @@
  .section-my-work { 
-    width:100%;  
+    width:100%; 
+    min-height:800px; 
     flex-direction: column;
 }
 
@@ -36,10 +37,10 @@
     align-self: center; 
     color: $light_green; 
     font-family: 'Roboto-Medium';
-    margin-bottom: 60px; 
+    margin: 30px 0; 
 
     @include tablets {
-        margin-bottom: 15px; 
+        margin: 5px 0;
     }          
 }
 
@@ -51,6 +52,7 @@
     width: 200px;
     text-align: center; 
     border-radius:100px;
+    cursor: pointer;
 
     &_span {
         font-family: 'Roboto-Medium';
@@ -62,7 +64,8 @@
 .section-slider-wraper {
     position: relative;
     display: block; 
-    height: 100vh;   
+    height: 77%;
+
 }
 
 .section-block_slider {
@@ -83,6 +86,7 @@
         position:static;
         width: 100%;
         height: 30%;
+        margin-bottom: 20px;
     }     
 
 }
@@ -103,19 +107,21 @@
     top: 0;    
     width: 50%;
     height: 80%;
-    background-image: url("../../assets/img/slider/1.png");
     background-size: 60%;
     background-position: center center;
     background-repeat: no-repeat;
     background-color: #e1e4d7;
     box-shadow: 0 0 100px #e1e4d7 inset;
     z-index:10;
+    overflow: hidden;
 
     @include tablets {
         position:static;
         width: 100%;
         height: 50%;        
     } 
+
+
 
 }
 
@@ -130,21 +136,20 @@
     @include tablets {
         position:static;
         width: 100%;
-    }     
+    }
+
+
 }
 
 .slider__block-button {
     display: block; 
-    position: relative;   
-    float: left;
-    width: 50%;
+    position: absolute;   
+    width: 100%;
     height: 100%;
-    background-image: url("../../assets/img/slider/1.png");
-    background-size: auto 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
     text-align: center; 
     cursor: pointer;
+    overflow:hidden;
+    z-index:100;
 
     &::after {
         content: '';
@@ -162,9 +167,87 @@
     }   
 }
 
+.slider__block-slides {
+    display: block; 
+    position: relative;   
+    float: left;
+    width: 50%;
+    height: 100%;
+    background-size: auto 90%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-align: center; 
+    cursor: pointer;
+    overflow:hidden;
+
+    @include phones{
+        background-size: 90% auto;      
+    } 
+}
+
+.first_slider {
+    background-image: url(../../assets/img/slider/2.png);    
+}
+
+.second_slider {
+    background-image: url(../../assets/img/slider/4.png);    
+}
+
+.slider__display {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+
+    @include tablets {
+        height:50%;
+    }    
+}
+
+.slider__item {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    &:after {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    } 
+
+}
+
+.slider__list {
+    position: absolute;
+    top:0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.slider__item-img {
+    width: 90%;
+    display: inline-block;
+    vertical-align: middle;
+
+    @include tablets {
+        height:90%;
+        width: auto;
+    }
+
+    @include phones{
+        height:auto;
+        width: 90%;       
+    } 
+}
+
 .slider__block-button-svg {
     position: relative;
     width: 43px;
+    height:100%;
     fill: #fff;
     z-index:100;
     opacity:0.8;

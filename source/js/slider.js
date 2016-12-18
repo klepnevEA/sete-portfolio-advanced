@@ -1,296 +1,166 @@
 
-var slider = () => (function(){
+var sliderModule = () => (function(){
 
-var Slider = function(container) {
-    var
-        nextBtn     = container.find('.works-slider__control-btn_left'),
-        prevBtn     = container.find('.works-slider__control-btn_right'),
-        items       = nextBtn.find('.works-slider__control-item'),
-        display     = container.find('.works-slider__display'), // Витрина слайдера
-        title       = container.find('.subtitle'),
-        skills      = container.find('.works__content-desc'),
-        link        = container.find('.works__content-view'),
-        itemsLength = items.length,
-        duration    = 500,
-	    flag        = true;
+var slider = (function() {
 
-		var timeout;
 
-    this.counter = 0;
-
-    // private
-    // Генерация разметки кнопки следующий слайд
-    var generateMarkups = function() {
-        var list = nextBtn.find('.works-slider__control-list'),
-            markups = list.clone();
-
-        prevBtn
-            .append(markups)
-            .find('.works-slider__control-item')
-            .removeClass('active')
-            .eq(this.counter + 1)
-            .addClass('active');
-    };
-    // Вытащить данные из дата атрибутов для левой части слайдера
-    var getDataArrays = function() {
-        var dataObject = {
-            pics : [],
-            title : [],
-            skills : [],
-            link : []
+        var initial = function(){
+           _setUpListeners();
         };
 
-        $.each(items, function() {
-            var $this = $(this);
-
-            dataObject.pics.push($this.data('full'));
-            dataObject.title.push($this.data('title'));
-            dataObject.skills.push($this.data('skills'));
-            dataObject.link.push($this.data('link'));
-        });
-
-        return dataObject;
-    };
-
-    var slideInLeftBtn = function(slide) {
-        var
-            reqItem = items.eq(slide - 1),
-            activeItem = items.filter('.active');
-
-        activeItem
-            .stop(true, true)
-            .animate({'top' : '100%'}, duration);
-
-		    reqItem
-			    .stop(true, true)
-			    .animate({'top' : '0%'}, duration, function () {
-				    $(this).addClass('active')
-					    .siblings().removeClass('active')
-					    .css('top', '-100%')
-			    });
-
-
-    };
-
-    var slideInRightBtn = function (slide) {
-        var
-            items = prevBtn.find('.works-slider__control-item'),
-            activeItem = items.filter('.active'),
-            reqSlide = slide + 1;
-
-        if (reqSlide > itemsLength - 1) {
-            reqSlide = 0;
-        }
-
-        var reqItem = items.eq(reqSlide);
-
-        activeItem
-            .stop(true, true)
-            .animate({'top' : '-100%'}, duration);
-
-        reqItem
-            .stop(true, true)
-            .animate({'top' : '0%'}, duration, function () {
-                $(this).addClass('active')
-                    .siblings().removeClass('active')
-                    .css('top', '100%')
-            });
-    };
-
-    var changeMainPicture = function(slide) {
-        var image = display.find('.works-slider__display-pic');
-        var data = getDataArrays();
-
-        image
-            .stop(true, true)
-            .fadeOut(duration / 2, function() {
-                image.attr('src', data.pics[slide]);
-                $(this).fadeIn(duration / 2);
-            });
-    };
-
-    var changeTextData = function(slide) {
-        var data = getDataArrays();
-
-        // название работы
-        aviatitle.generate(data.title[slide], title, 'ru');
-
-        // описание технологий
-        aviatitle.generate(data.skills[slide], skills, 'en');
-
-        // ссылка
-        link.attr('href', data.link[slide]);
-    };
-
-    // public
-    this.setDefaults = function() {
-        var
-            _that = this,
-            data = getDataArrays();
-
-        // создаем разметку
-        generateMarkups();
-
-        // левая кнопка
-        nextBtn
-            .find('.works-slider__control-item')
-            .eq(_that.counter - 1)
-            .addClass('active');
-
-        // правая кнопка
-        prevBtn
-            .find('.works-slider__control-item')
-            .eq(_that.counter + 1)
-            .addClass('active');
-
-        // основное изображение
-        display
-            .find('.works-slider__display-pic')
-            .attr('src', data.pics[_that.counter]);
-
-        // текстовые описания
-        changeTextData(_that.counter);
-
-    };
-
-    this.moveSlide = function(direction) {
-        var _that = this;
-        // if (direction === "next") {
-        //     if (_that.counter < itemsLength - 1) {
-        //             _that.counter++;
-        //         } else {
-        //             _that.counter = 0;
-        //         }
-        // } else {
-        //          if (_that.counter > 0) {
-        //             _that.counter--;
-        //         } else {
-        //             _that.counter = itemsLength - 1;
-        //         }
-        // }
-
-       var directions = {
-           next : function() {
-               // закольцовывание слайдера
-               if (_that.counter < itemsLength - 1) {
-                   _that.counter++;
-               } else {
-                   _that.counter = 0;
-               }
-           },
-
-           prev : function () {
-               if (_that.counter > 0) {
-                   _that.counter--;
-               } else {
-                   _that.counter = itemsLength - 1;
-               }
-           }
-       };
+        var _setUpListeners = function() {
+            $('.slider__block-button').on('click', _openSlider);
+        };
+
+        var moveSlide = function(container, slideNum) {
+            var 
+                items = container.find('.slider__item'),
+                activeItem = items.filter('.active'),
+                regItem = items.eq(slideNum),
+                regIndex = regItem.index(),
+                list = container.find('.slider__list'),
+                duration = 500;
+               
+
+            if(regItem.length)  {
+                list.stop(true, true).animate({
+                    'top': -regIndex * 100 + '%'
+                }, duration, function(){
+                    activeItem.removeClass('active');
+                    regItem.addClass('active');
+                    writeInfo(container);
+                });
+            };
+
+
+            
+        } 
+
+        var writeInfo = function(container) {
+            var items = container.find('.slider__item'),
+                activeItem = items.filter('.active'),
+                dataTitle=activeItem.data('title'),
+                dataSkills=activeItem.data('skills'),
+                dataLink=activeItem.data('link'),
+                dataSrcPrev=activeItem.data('src-prev'),
+                dataSrcNext=activeItem.data('src-next'),
+                buttonLeft = $('.first_slider'),
+                buttonRight = $('.second_slider');
+
+            var about = $('.title_section-about'),
+                description = $('.portfolio-description_text'),
+                linkHref = $('.portfolio-description_link');
+                
+                about.text(dataTitle);
+                description.text(dataSkills);
+                linkHref.attr('href', dataLink);
+                buttonLeft.css('background-image', 'url("'+dataSrcNext+'")');
+                buttonRight.css('background-image', 'url("'+dataSrcPrev+'")');    
+                console.log(dataSrcPrev);
+        } 
+
+
+
+        var _openSlider = function(e) {
+                    console.log('!');
+            e.preventDefault();
+                var $this = $(this),
+                container = $('.slider__display'),
+                items = container.find('.slider__item'),
+                activeItem = items.filter('.active'),
+                nextItem = activeItem.next(),
+                prevItem = activeItem.prev();
+
+
+
+ 
+
+                if($this.hasClass('slider__block-button_left')) {
+                
+                    if(nextItem.length) {
+                        moveSlide(container, nextItem.index()); 
+;   
+                    } else {
+                        moveSlide(container, 0);                        
+                    }
+                } else {
+                    if(prevItem.length) {
+                        moveSlide(container, prevItem.index()); 
+                    } else {
+                        moveSlide(container, items.length - 1);                     
+                    }
+                }
+        };
+
+
+    return {
+        init: initial
+    }
+ })();
+
+ slider.init();
+
+
+// var slider = (function(){
+//     var counter = 1,
+//         duration = 300,
+//         flag = true;
+
+//     var moveSlide = function (container, direction) {
+//         var items = container.find('.slider__item'),
+//             activeItem = items.filter('.active'),
+//             direction = direction == 'down' ? 100 : -100;
 
-       directions[direction]();
 
-	    if (flag) {
-			flag = false;
+//         if (counter >= items.length) {
+//             counter = 0;
+//         }
 
-		    if (typeof timeout != 'undefined') {
-				  clearTimeout(timeout);
-		    }
+//         var reqItem = items.eq(counter);
 
-		    timeout = setTimeout(function () {
-			    flag = true;
-		    }, duration + 50);
+//         activeItem.animate({
+//             'top' : direction + '%'
+//         }, duration);
 
-		    slideInLeftBtn(_that.counter);
-		    slideInRightBtn(_that.counter);
-		    changeMainPicture(_that.counter);
-		    changeTextData(_that.counter);
-	    };
-    };
-};
+//         reqItem.animate({
+//             'top' : '0%'
+//         }, duration, function () {
+//             activeItem.removeClass('active').css('top', -direction  + '%');
+//             $(this).addClass('active');
+//             console.log($(this));
+//             flag = true;
+//         });
+//     }
+    
+//     return {
+//         init: function () {
+//             $('.slider__block-button_left').on('click', function(e){
+//                 e.preventDefault();
 
+//                 var firstSlider = $('.first_slider');
+//                 var secondSlider = $('.second_slider');
 
-var aviatitle = {
-    generate : function (string, block) {
-        var
-            wordsArray = string.split(' '), // найти массив слов
-            stringArray = string.split(''), // найти массив всех симовлов в строке
-            sentence = [],
-            word = '';
+//                 if (flag) {
+//                     flag = false;
+//                     moveSlide(firstSlider, 'down');
+//                     moveSlide(secondSlider, 'up');
+//                 }
 
-        block.text(''); // очищаем блок вывода
+//                 counter++;
+//             });
+//         }
+//     }
 
-        wordsArray.forEach(function(currentWord) {
-            var wordsArray = currentWord.split(''); // массив символов в слове
+// }());
 
-            wordsArray.forEach(function(letter) {
-                var letterHtml = '<span class="letter-span">' + letter + '</span>';
-                // каждую букву оборачиваем в свой span
-                word += letterHtml;
-            });
-            // берем отдельное слово и оборачиваем его в класс
-            var wordHTML = '<span class="letter-word">' + word + '</span>'
-            // добавим в массив предложения
-            sentence.push(wordHTML);
-            word = '';
-        });
-        // добавим в блок сгенерированую разметку для предложения
-        block.append(sentence.join(' '));
+// $(function () {
+//     slider.init();
+// });
 
-        // анимация появления
-        var
-            letters = block.find('.letter-span'), // найдем все наши буквы
-            counter = 0,
-            timer,
-            duration = 500 / stringArray.length; // находим длительность для каждой буквы
 
-        function showLetters() {
-            var currentLetter = letters.eq(counter);
 
-            currentLetter.addClass('active');
-            counter++;
+}());
 
-            if (typeof timer !== 'undefined') {
-                clearTimeout(timer);
-            }
 
-            timer = setTimeout(showLetters, duration);
-        }
 
-        showLetters();
-
-    },
-};
-
-/*-----------------*/
-
-
-
-
-
-
-var slider = new Slider($('.works'));
-slider.setDefaults();
-
-$('.works-slider__control-btn_left').on('click', function(e){
-    e.preventDefault();
-    slider.moveSlide('prev');
-});
-
-$('.works-slider__control-btn_right').on('click', function(e){
-    e.preventDefault();
-    slider.moveSlide('next');
-});
-
-
-
-
-
-
-
-     }());
-
-
-
-
-export {slider};
+export {sliderModule};
