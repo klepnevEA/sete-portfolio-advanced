@@ -1,6 +1,6 @@
 'use strict';
 
-import {screenMenu, parallaxScroll, rotateLogin, map} from './module';
+import {screenMenu, parallaxScroll, rotateLogin, map, blog} from './module';
 import {waterMaps} from './waterMaps';
 import {sliderModule} from './slider';
 import {preloaderModule} from './preloader';
@@ -11,3 +11,4 @@ waterMaps();
 map();
 preloaderModule();
 sliderModule();
+blog();

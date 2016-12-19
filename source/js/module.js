@@ -83,5 +83,10 @@ $(window).scroll(function(){
 
 }());
 
-
-export { screenMenu, parallaxScroll,rotateLogin, map};
+var blog = () =>  (function(){
+		$('.section-blog__button, .list-topics__link').on('click', function(e){
+			e.preventDefault();
+			$('.section-blog__list-topics').toggleClass('active');
+		});
+}());
+export { screenMenu, parallaxScroll,rotateLogin, map, blog};
