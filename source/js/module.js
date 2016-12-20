@@ -7,44 +7,44 @@ var screenMenu = () =>  {
 
 
 var map = () =>  (function(){
-        ymaps.ready(init);
-        var myMap, 
-            myPlacemark;
+	ymaps.ready(init);
+	var myMap, 
+	myPlacemark;
 
-        function init(){ 
-            myMap = new ymaps.Map("map", {
-                center: [55.76, 37.64],
-                zoom: 7
-            }); 
-            
-            myPlacemark = new ymaps.Placemark([55.76, 37.64], {
-                hintContent: 'Москва!',
-                balloonContent: 'Столица России'
-            });
-            
-            myMap.geoObjects.add(myPlacemark);
-        }
+	function init(){ 
+		myMap = new ymaps.Map("map", {
+			center: [55.76, 37.64],
+			zoom: 7
+		}); 
+
+		myPlacemark = new ymaps.Placemark([55.76, 37.64], {
+			hintContent: 'Москва!',
+			balloonContent: 'Столица России'
+		});
+
+		myMap.geoObjects.add(myPlacemark);
+	}
 }());
 
 
 var rotateLogin = () =>  (function(){
-		var button = $('.button-autorization'),
-				indexFornWraper = $('.login-forn__flip'),
-				indexBlock = $('.Background');
+	var button = $('.button-autorization'),
+	indexFornWraper = $('.login-forn__flip'),
+	indexBlock = $('.Background');
 
-		indexFornWraper.on('click', function(e){
-			e.stopPropagation();
-		});
+	indexFornWraper.on('click', function(e){
+		e.stopPropagation();
+	});
 
-		button.on('click', function(e){
-			e.preventDefault();	
-			indexFornWraper.addClass('active');
-		});
+	button.on('click', function(e){
+		e.preventDefault();	
+		indexFornWraper.addClass('active');
+	});
 
-		indexBlock.on('click', function(e){
-			e.preventDefault();	
-			indexFornWraper.removeClass('active');
-		});		
+	indexBlock.on('click', function(e){
+		e.preventDefault();	
+		indexFornWraper.removeClass('active');
+	});		
 
 }());
 
@@ -74,18 +74,69 @@ var parallaxScroll = () => (function(){
 		}
 	}());	
 
-$(window).scroll(function(){
-	var wScroll = $(window).scrollTop();
+	$(window).scroll(function(){
+		var wScroll = $(window).scrollTop();
 
-	parallax.init(wScroll);
-}); 
+		parallax.init(wScroll);
+	}); 
 
 
 }());
 
 var blog = () =>  (function(){
-		$('.section-blog__button, .list-topics__link').on('click', function(e){
-			$('.section-blog__list-topics').toggleClass('active');
-		});
+	$('.section-blog__button, .list-topics__link').on('click', function(e){
+		$('.section-blog__list-topics').toggleClass('active');
+	});
 }());
-export { screenMenu, parallaxScroll,rotateLogin, map, blog};
+
+var blogScroll = () =>  (function(){
+	var scrollInit = (function(){
+		return {
+			init: function() {
+				var p = new Promise(function(resolve, reject) {
+					var locationPage = location.pathname;
+					if(locationPage) {
+						resolve(locationPage);
+					};
+				});
+
+				p.then(function(locationPage){
+
+					if(locationPage == "/blog.html") {
+						var elem = $('#list-topics'),
+								wrap = $('.section-blog__list-topics');
+						
+						for(var i = 0; i< wrap.length; i++) {
+							var topListTopics = (wrap[i].getBoundingClientRect().top);
+
+						}
+
+						console.log(elem);
+						console.log(wrap);						
+						if(topListTopics <= 0) {
+							elem.addClass('list-topics_fixed')
+						}	else {
+							elem.removeClass('list-topics_fixed')
+						};
+						// for(var i = 0; i< elem.length; i++) {
+						// 	if(elem[i].getBoundingClientRect().top <= 0) {
+						// 		console.log(elem[i].id);
+						// 	}
+
+						// }				
+					}
+				});
+			}, 
+			scroll: function() {
+
+			}
+		}
+	}());
+	$(window).on('scroll', function(){
+		scrollInit.init();
+	})
+
+	scrollInit.init();
+
+}());
+export { screenMenu, parallaxScroll,rotateLogin, map, blog, blogScroll};
