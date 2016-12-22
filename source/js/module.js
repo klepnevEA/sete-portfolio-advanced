@@ -22,6 +22,8 @@ var map = () =>  (function(){
 			balloonContent: 'Столица России'
 		});
 
+		myMap.behaviors.disable('scrollZoom'); 
+
 		myMap.geoObjects.add(myPlacemark);
 	}
 }());
@@ -110,9 +112,7 @@ var blogScroll = () =>  (function(){
 							var topListTopics = (wrap[i].getBoundingClientRect().top);
 
 						}
-
-						console.log(elem);
-						console.log(wrap);						
+				
 						if(topListTopics <= 0) {
 							elem.addClass('list-topics_fixed')
 						}	else {

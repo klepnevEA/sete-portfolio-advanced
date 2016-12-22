@@ -19,6 +19,10 @@
 	border-radius:50%;
 	overflow: hidden;
 	margin-bottom:20px;	
+
+    @include phones {
+        margin-bottom:5px;        
+    }   
 }
 
 .index-block {
@@ -39,7 +43,9 @@
         .index-wraper {
             transform: rotate3d(0, 1, 0, 180deg);
         }
-    }     
+    }
+
+
 }
 
 .index-wraper {
@@ -48,6 +54,11 @@
     min-height:500px;   
     transition:2s;
     transform-style: preserve-3d;
+
+    @include phones {
+        width: 310px;
+        min-height: 312px;        
+    }
 }
 
 .index-forn__wraper {
@@ -63,11 +74,19 @@
 	opacity:0.95;	
 	padding: 41px 0px 0;
     backface-visibility: hidden;
+
+    @include phones {
+        padding: 20px 0 0;        
+    }    
 }
 
 .section-top_index {
 	flex-direction: column; 
 	width: 100%;
+
+    @include phones {
+        height: 76px;    
+    }    
 }
 
 .section-index_name {
@@ -95,6 +114,10 @@
     height: 46px;
     width:100%;
     margin-top: 40px;
+
+    @include phones {
+            margin: 9px -20px 0;   
+    }    
 }
 
 .index-block__button {
@@ -142,6 +165,10 @@
     padding: 20px 20px 0;
     transform: rotateY(-180deg);
     backface-visibility: hidden;
+
+    @include phones {
+        padding: 16px 10px 0;     
+    }    
 }
 
 .login-block__form {
@@ -156,6 +183,11 @@
     font-family: 'Roboto-Regular';
     color: #b5b4b2; 
     margin-bottom: 20px;
+
+    @include phones {
+        margin-bottom: 0px;
+        padding: 7px;   
+    }      
 }
 
 .login-block__elem-before {
@@ -204,7 +236,11 @@
     color: #fff;
     font-family: 'Roboto-Regular';
     line-height:1em;
-    padding: 20px 0;    
+    padding: 20px 0;
+
+    @include phones {
+        padding: 7px 0;
+    }        
 } 
 
 
@@ -216,7 +252,11 @@
     justify-content: center;
     align-content: stretch;
     align-items: stretch;
-    margin-top:40px;    
+    margin-top:40px; 
+
+     @include phones {
+            margin: 0px -10px 0;
+    }       
 }
 
 .login-block__button {
@@ -252,7 +292,11 @@
 
     input {
         display:none;
-    }  
+    } 
+
+    @include phones  {
+       margin:7px; 
+    } 
 }
 
 .login__radio-fake {
