@@ -126,17 +126,42 @@ var blogScroll = () =>  (function(){
 						// }				
 					}
 				});
-			}, 
-			scroll: function() {
-
 			}
 		}
 	}());
-	$(window).on('scroll', function(){
-		scrollInit.init();
-	})
 
 	scrollInit.init();
 
 }());
-export { screenMenu, parallaxScroll,rotateLogin, map, blog, blogScroll};
+
+
+var goDownBtn = () =>  (function(){
+	var goDownInit = (function(){
+
+		var start = function() {
+			_addListeners();
+		};
+
+		var _addListeners = function(){
+			var sectionTopBtn = $('.section-top__button');
+			sectionTopBtn.on('click', _goDown);
+		};
+
+		var _goDown  = function(e){
+			e.preventDefault();
+			var sectionHeight = $(this).closest('section').css('height');
+			$('body').animate({scrollTop: sectionHeight}, 800);
+		};
+
+
+		return {
+			init: start
+		}
+	}());
+
+
+
+	goDownInit.init();
+
+}());
+export { screenMenu, parallaxScroll,rotateLogin, map, blog, blogScroll, goDownBtn };
