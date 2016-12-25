@@ -24,8 +24,9 @@ section.section
 					ul.skills
 						- var skills_list = {'Frontend': ['HTML 5', 'CSS 3', 'JavaScript & Jquery'], 'Backend': ['PHP', 'mySQL', 'Node.js & npm', 'Mongo.db'],  'WorkFlow' : ['Git', 'Gulp', 'Bower']}
 							- for (var name in skills_list)
-								li(class='skills__title') #{name}
-									ul.skills__list
+								li(class='skills__title') 
+									span.wow.bounceInRight(data-wow-duration="2s" data-wow-offset="200") #{name}
+									ul.skills__list.wow.zoomIn(data-wow-duration="2s" data-wow-offset="200")
 										- for (var i = 0; i < skills_list[name].length; i++)
 											li.skills__elem 
 												span.skills__text #{skills_list[name][i]}

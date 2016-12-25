@@ -7,25 +7,33 @@ var screenMenu = () =>  {
 
 
 var map = () =>  (function(){
-	ymaps.ready(init);
-	var myMap, 
-	myPlacemark;
+	var locationPage = location.pathname;
+	if(locationPage == "/about.html") {
+		ymaps.ready(init);
+		var myMap, 
+		myPlacemark;
 
-	function init(){ 
-		myMap = new ymaps.Map("map", {
-			center: [55.76, 37.64],
-			zoom: 7
-		}); 
+		function init(){ 
+			myMap = new ymaps.Map("map", {
+				center: [55.76, 37.64],
+				zoom: 7
+			}); 
 
-		myPlacemark = new ymaps.Placemark([55.76, 37.64], {
-			hintContent: 'Москва!',
-			balloonContent: 'Столица России'
-		});
+			myPlacemark = new ymaps.Placemark([55.76, 37.64], {
+				hintContent: 'Москва!',
+				balloonContent: 'Столица России'
+			});
 
-		myMap.behaviors.disable('scrollZoom'); 
+			myMap.behaviors.disable('scrollZoom'); 
 
-		myMap.geoObjects.add(myPlacemark);
-	}
+			myMap.geoObjects.add(myPlacemark);
+		}		
+	}	
+
+}());
+
+var wowInit = () =>  (function(){
+	new WOW().init();
 }());
 
 
@@ -85,6 +93,38 @@ var parallaxScroll = () => (function(){
 
 }());
 
+
+var skillsGo = () => (function(){
+
+	var aboutMe = (function(){
+		var skills = $('.skills');
+		var locationPage = location.pathname;
+		if(locationPage == "/about.html") {
+			var skillsTop = skills.offset().top,
+			g_circles = $('.g_circles');			
+		};
+
+		return {
+			move : function () {
+				var windowScrollTop = $(window).scrollTop(); 
+
+				if(windowScrollTop > skillsTop-100) {
+					skills.addClass('active');
+				}
+			},
+
+		}
+	}());	
+
+	$(window).scroll(function(){
+		// var wScroll = $(window).scrollTop();
+
+		aboutMe.move();
+	}); 
+
+
+}());
+
 var blog = () =>  (function(){
 	$('.section-blog__button, .list-topics__link').on('click', function(e){
 		$('.section-blog__list-topics').toggleClass('active');
@@ -106,24 +146,18 @@ var blogScroll = () =>  (function(){
 
 					if(locationPage == "/blog.html") {
 						var elem = $('#list-topics'),
-								wrap = $('.section-blog__list-topics');
+						wrap = $('.section-blog__list-topics');
 						
 						for(var i = 0; i< wrap.length; i++) {
 							var topListTopics = (wrap[i].getBoundingClientRect().top);
 
 						}
-				
+
 						if(topListTopics <= 0) {
 							elem.addClass('list-topics_fixed')
 						}	else {
 							elem.removeClass('list-topics_fixed')
 						};
-						// for(var i = 0; i< elem.length; i++) {
-						// 	if(elem[i].getBoundingClientRect().top <= 0) {
-						// 		console.log(elem[i].id);
-						// 	}
-
-						// }				
 					}
 				});
 			}
@@ -164,4 +198,4 @@ var goDownBtn = () =>  (function(){
 	goDownInit.init();
 
 }());
-export { screenMenu, parallaxScroll,rotateLogin, map, blog, blogScroll, goDownBtn };
+export { screenMenu, parallaxScroll,rotateLogin, map, blog, blogScroll, goDownBtn, wowInit, skillsGo };

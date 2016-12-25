@@ -31,8 +31,6 @@ var slider = (function() {
                     writeInfo(container);
                 });
             };
-
-
             
         } 
 

@@ -149,7 +149,7 @@
     stroke: $green;    
 }
 
-.g_circles:hover .sector {
+.active .g_circles .sector {
  stroke-dasharray: 250 722;
 }
 

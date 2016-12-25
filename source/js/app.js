@@ -1,6 +1,6 @@
 'use strict';
 
-import {screenMenu, parallaxScroll, rotateLogin, map, blog, blogScroll, goDownBtn } from './module';
+import {screenMenu, parallaxScroll, rotateLogin, map, blog, blogScroll, goDownBtn, wowInit,skillsGo } from './module';
 import {waterMaps} from './waterMaps';
 import {sliderModule} from './slider';
 import {preloaderModule} from './preloader';
@@ -14,3 +14,5 @@ sliderModule();
 blog();
 blogScroll();
 goDownBtn();
+wowInit();
+skillsGo();
