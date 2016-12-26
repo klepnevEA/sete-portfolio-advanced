@@ -84,7 +84,7 @@
 
 
 .list-topics__elem {
-	padding: 15px;
+	
 	border-right:2px solid transparent;
 	display: inline-block;
 	width: 100%;
@@ -93,7 +93,7 @@
 
 		& .list-topics__link {
 			@include tablets {
-					border-bottom:2px solid #fff;
+					opacity:1;
 			}				
 		}	   	
 	}
@@ -105,11 +105,15 @@
 }
 
 .list-topics__link {
+	display: inline-block;
 	color: $green;
-	font-family: 'Roboto-Medium';	
+	font-family: 'Roboto-Medium';
+	padding:15px;	
+
 
 	@include tablets {
 		color: #fff;
+		opacity:0.5;
 	}	
 
 }

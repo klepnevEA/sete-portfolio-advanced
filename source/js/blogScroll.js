@@ -48,7 +48,6 @@ scrollPage = function (e) {
 },
 
 clickOnMenu = function (e) {
-    console.log($(e.target).parent());
     var index = $(e.target).parent().index();
     var sectionOffset = $news
     .eq(index)
