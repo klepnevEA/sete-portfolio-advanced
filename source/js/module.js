@@ -131,42 +131,46 @@ var blog = () =>  (function(){
 	});
 }());
 
-var blogScroll = () =>  (function(){
-	var scrollInit = (function(){
-		return {
-			init: function() {
-				var p = new Promise(function(resolve, reject) {
-					var locationPage = location.pathname;
-					if(locationPage) {
-						resolve(locationPage);
-					};
-				});
+// var blogScroll = () =>  (function(){
+// 	var scrollInit = (function(){
+// 		return {
+// 			init: function() {
+// 				var p = new Promise(function(resolve, reject) {
+// 					var locationPage = location.pathname;
+// 					if(locationPage) {
+// 						resolve(locationPage);
+// 					};
+// 				});
 
-				p.then(function(locationPage){
+// 				p.then(function(locationPage){
 
-					if(locationPage == "/blog.html") {
-						var elem = $('#list-topics'),
-						wrap = $('.section-blog__list-topics');
+// 					if(locationPage == "/blog.html") {
+// 						var elem = $('#list-topics'),
+// 						wrap = $('.section-blog__list-topics');
 						
-						for(var i = 0; i< wrap.length; i++) {
-							var topListTopics = (wrap[i].getBoundingClientRect().top);
+// 						for(var i = 0; i< wrap.length; i++) {
+// 							var topListTopics = (wrap[i].offset().top);
 
-						}
+// 						}
 
-						if(topListTopics <= 0) {
-							elem.addClass('list-topics_fixed')
-						}	else {
-							elem.removeClass('list-topics_fixed')
-						};
-					}
-				});
-			}
-		}
-	}());
+// 						if(topListTopics <= 0) {
+// 							elem.addClass('list-topics_fixed')
+// 						}	else {
+// 							elem.removeClass('list-topics_fixed')
+// 						};
+// 					}
+// 				});
+// 			}
+// 		}
+// 	}());
 
-	scrollInit.init();
+// 	scrollInit.init();
 
-}());
+// 	$(window).scroll(function(){
+// 		scrollInit.init();
+// 	}); 	
+
+// }());
 
 
 var goDownBtn = () =>  (function(){
@@ -198,4 +202,4 @@ var goDownBtn = () =>  (function(){
 	goDownInit.init();
 
 }());
-export { screenMenu, parallaxScroll,rotateLogin, map, blog, blogScroll, goDownBtn, wowInit, skillsGo };
+export { screenMenu, parallaxScroll,rotateLogin, map, blog, goDownBtn, wowInit, skillsGo };
